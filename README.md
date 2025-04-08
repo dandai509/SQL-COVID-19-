@@ -51,6 +51,7 @@ FROM SQLPROJECT.dbo.CovidDeaths
 WHERE LOCATION = 'NEW ZEALAND'
 ORDER BY 1,2
 
+
 --Check Total cases vs Population in NZ
 --The table shows COVID infection rate in NZ from Feb 2020- April 2021
 
