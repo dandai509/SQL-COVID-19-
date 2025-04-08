@@ -52,6 +52,8 @@ SELECT Location, date, total_cases, Population,(total_cases/Population)*100 as I
 FROM SQLPROJECT.dbo.CovidDeaths
 WHERE LOCATION = 'NEW ZEALAND'
 ORDER BY 1,2
+![6](https://github.com/user-attachments/assets/e93de98c-e4e0-4525-966d-93cd448fb539)
+![7](https://github.com/user-attachments/assets/6bbc35ea-6eb5-4580-b166-e052b3d6d07e)
 
 --Check the Highest Infection rate as per coutry
 --NZ Ranked 179, one of the lowest infection rate among developed countries 
@@ -61,6 +63,9 @@ FROM SQLPROJECT.dbo.CovidDeaths
 GROUP BY Location, Population
 ORDER BY InfectionRate DESC
 
+![8](https://github.com/user-attachments/assets/5a6d056e-6b3e-47b4-8964-e8b22f669b8a)
+![9](https://github.com/user-attachments/assets/fb7e9617-3717-406d-bce7-e282ee517a18)
+
 --Check The Highest Death Count per population as Continent
 --Europe has the highest
 
@@ -69,6 +74,9 @@ FROM SQLPROJECT.dbo.CovidDeaths
 WHERE continent is NOT NULL
 GROUP BY continent
 ORDER BY TotalDeathCount DESC
+![10](https://github.com/user-attachments/assets/2318e5ff-41ce-4db3-be02-697ca16bd115)
+![11](https://github.com/user-attachments/assets/854dcfa3-5c43-4ae7-a9f6-c10d81577162)
+
 
 --Check Overall World COVID cases and death by dates 
 
@@ -77,6 +85,8 @@ FROM SQLPROJECT.dbo.CovidDeaths
 WHERE continent is not null
 Group By date
 order by 1, 2
+![12](https://github.com/user-attachments/assets/cb1ab214-1df8-4f08-84e3-b9cc45e7d7a7)
+![13](https://github.com/user-attachments/assets/5a8eed4a-58c4-4b21-a03c-21fbfc68df2a)
 
 --Join COVID death table and Covid Vaccination table together 
 
@@ -85,7 +95,10 @@ FROM SQLPROJECT.dbo.CovidDeaths dea
 Join SQLPROJECT.dbo.CovidVaccinations vac
 	on dea.location=vac.location
 	and dea.date=vac.date
-	
+
+ ![14](https://github.com/user-attachments/assets/55cb630a-10a4-4de6-82f3-b472f1da0fde)
+![15](https://github.com/user-attachments/assets/a13a04c4-2d30-4c49-ada0-048412a66f2f)
+
 --Check World Total Population vs Vaccination
 
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
@@ -95,7 +108,10 @@ Join SQLPROJECT.dbo.CovidVaccinations vac
 	and dea.date=vac.date
 WHERE dea.continent is not null
 ORDER BY 2,3
+![16](https://github.com/user-attachments/assets/ee235176-38c1-4004-bbd4-9930a7de9f26)
+![17](https://github.com/user-attachments/assets/51d926a3-fcb6-46e4-94c2-5b50a33bd112)
 
+-- Find out rolling total vaccinated population
 
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
 SUM(CONVERT(int, vac.new_vaccinations)) OVER (PARTITION by dea.Location, dea.Date) AS RollingPeopleVaccinate
@@ -106,6 +122,9 @@ Join SQLPROJECT.dbo.CovidVaccinations vac
 	and dea.date=vac.date
 WHERE dea.continent is not null
 ORDER BY 2,3
+![18](https://github.com/user-attachments/assets/376297ad-38db-4962-8dcb-8348c2450ba4)
+![19](https://github.com/user-attachments/assets/22f8d119-900a-40de-a4f5-d8e57379bf76)
+
 
 --Using CTE to perform calculation on partition by previous query
 
@@ -123,6 +142,10 @@ WHERE dea.continent is not null
 )
 SELECT*, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac
+
+![20](https://github.com/user-attachments/assets/644ce81b-159c-4532-a112-9495723a2f59)
+![21](https://github.com/user-attachments/assets/b25cb2d8-9353-43c6-abfa-5fe77e77af00)
+
 
 -- Using TEMP TABLE to perform calculation on Partition By in previous query
 DROP TABLE IF exists #PercentPopulationVaccinated
