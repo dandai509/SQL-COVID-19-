@@ -4,13 +4,21 @@
 ### Covid 19 Data Exploration
 **Code:** [`COVID 19 SQL Project.sql`](https://github.com/dandai509/Data-Analysis-Portfolio/blob/main/COVID%2019%20SQL%20Project.sql)
 
-**Goal:** To perform EDA on COVID 19 date to show New Zealand VS World
+**Project Goal:** This project explores and analyzes global COVID-19 data using SQL to uncover trends, assess impacts, and evaluate vaccination progress across countries and continents. The analysis focuses on real-world data related to infection rates, death rates, and vaccination rollouts, with a deep dive into New Zealand.
 
-**Description:** This project focused on Data Exploration Analysis for COVID-19 of different countries from Feb 2020 to April 2021. The dataset contains records of Covid-19 cases, deaths and vaccine records by country. Steps includes data loading, data cleaning and preprocessing and EDA 
+The project demonstrates skills in:
 
-**Skills:** Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+- SQL data querying and aggregation
 
-**Technology:** SQL Server
+- CTEs, temp tables, views for modular analysis
+
+- Joining datasets
+
+- Building metrics and KPIs (e.g., Infection Rate, Death Percentage)
+
+- Data transformation for BI tools (e.g., Power BI)
+
+
 
 COVID 19 Data Exploration
 
