@@ -2,7 +2,6 @@
 
 ## SQL Projects
 ### Covid 19 Data Exploration
-**Code:** [`COVID 19 SQL Project.sql`](https://github.com/dandai509/Data-Analysis-Portfolio/blob/main/COVID%2019%20SQL%20Project.sql)
 
 **Project Goal:** This project explores and analyzes global COVID-19 data using SQL to uncover trends, assess impacts, and evaluate vaccination progress across countries and continents. The analysis focuses on real-world data related to infection rates, death rates, and vaccination rollouts, with a deep dive into New Zealand.
 
