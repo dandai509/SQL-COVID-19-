@@ -45,11 +45,6 @@ Check overall new cases per day since Feb 2020 for each coutry
 
 Check Total Cases vs Total Deaths in NZ, The table shows the chance of dying if people contract COVID-19 in NZ
 
-SELECT Location, date, total_cases, total_deaths,(total_deaths/total_cases)*100 as DeathPercentage
-FROM SQLPROJECT.dbo.CovidDeaths
-WHERE LOCATION = 'NEW ZEALAND'
-ORDER BY 1,2
-
 ![6](https://github.com/user-attachments/assets/e93de98c-e4e0-4525-966d-93cd448fb539)
 
 ![7](https://github.com/user-attachments/assets/6bbc35ea-6eb5-4580-b166-e052b3d6d07e)
