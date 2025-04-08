@@ -1,9 +1,10 @@
 # SQL-COVID-19-Data Analysis
 
-## SQL Projects
-### Covid 19 Data Exploration
 
-**Project Goal:** This project explores and analyzes global COVID-19 data using SQL to uncover trends, assess impacts, and evaluate vaccination progress across countries and continents. The analysis focuses on real-world data related to infection rates, death rates, and vaccination rollouts, with a deep dive into New Zealand.
+
+## Project Goal
+
+This project explores and analyzes global COVID-19 data using SQL to uncover trends, assess impacts, and evaluate vaccination progress across countries and continents. The analysis focuses on real-world data related to infection rates, death rates, and vaccination rollouts, with a deep dive into New Zealand.
 
 The project demonstrates skills in:
 
@@ -17,35 +18,33 @@ The project demonstrates skills in:
 
 - Data transformation for BI tools (e.g., Power BI)
 
+## Datasets Used
+
+CovidDeaths: Contains daily reported cases, deaths, and population data.
+
+CovidVaccinations: Contains data on vaccine distribution by country and date.
+
+Both datasets were imported and verified from the Our World in Data public source and stored in SQL Server under the SQLPROJECT.dbo schema.
 
 
-COVID 19 Data Exploration
+## Exploratory Data Analysis
 
---Check two tables to see if Data has imported correctly 
-
-SELECT * 
-FROM SQLPROJECT.dbo.CovidDeaths
-
-SELECT *
-FROM SQLPROJECT.dbo.CovidVaccinations
+Check two tables to see if Data has imported correctly 
 
 ![1](https://github.com/user-attachments/assets/ae2aee08-6952-4a13-b819-efa68baa9440)
 
 ![3](https://github.com/user-attachments/assets/867dba6e-bac0-448e-8915-ff4c875658b1)
 
 
---Check overall new cases per day since Feb 2020 for each coutry 
-
-SELECT Location, date, total_cases, new_cases, total_deaths,population
-FROM SQLPROJECT.dbo.CovidDeaths
-ORDER BY 1,2
+Check overall new cases per day since Feb 2020 for each coutry 
 
 ![4](https://github.com/user-attachments/assets/5eb5ba78-4758-40df-a2fe-7a25b67cdf6e)
+
 ![5](https://github.com/user-attachments/assets/c04de501-15c7-4ea1-99c5-535251c85b3f)
 
 
--- Check Total Cases vs Total Deaths in NZ
--- The table shows the chance of dying if people contract COVID-19 in NZ
+Check Total Cases vs Total Deaths in NZ
+The table shows the chance of dying if people contract COVID-19 in NZ
 
 SELECT Location, date, total_cases, total_deaths,(total_deaths/total_cases)*100 as DeathPercentage
 FROM SQLPROJECT.dbo.CovidDeaths
